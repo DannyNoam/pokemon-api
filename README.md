@@ -1,4 +1,4 @@
-# Pokemon API
+# Pokemon API 
 
 #### Prerequisites
 Please ensure Docker is installed on your machine.
@@ -8,6 +8,14 @@ To run the Pokemon API, simply copy-and-paste the following command into your te
 ```
 docker build -t pokemon-api . && docker run -p 8080:8080 pokemon-api
 ```
+This will expose the pokemon-api on your local machine via your Docker host, binded to port 8080, which can then be accessed via <DockerHost>:8080 (your Docker host is normally localhost, unless you're running Docker Machine).
+
+The following two endpoints are available for use:
+```
+/pokemon-api/{pokemon}
+/pokemon-api/translated/{pokemon}
+```
+
 
 #### What would I do differently?
 Had this application been required to run on a production environment, we'd of course need to run a number of replicas to ensure high availability (HA), and as a means of enabling rolling deployments. We'd, of course, also need to configure our connection and read timeouts a bit more scientifically (the values assigned are arbitrary, 'sensible' values), and we'd probably want to have our containers orchestrated/managed by some container orchestration tool like Kubernetes.
