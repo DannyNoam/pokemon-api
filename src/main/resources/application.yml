@@ -1,0 +1,22 @@
+spring:
+  cache:
+    type: CAFFEINE
+    cache-names: pokemon,translatedpokemon
+    caffeine:
+      spec: maximumSize=100,expireAfterAccess=3600s
+
+settings:
+  version: ${POKEMON_VERSION:red}
+  language: ${LANGUAGE:en}
+  api:
+    funTranslation:
+      baseUri: https://api.funtranslations.com/translate
+      yodaUri: /yoda.json
+      shakespeareUri: /shakespeare.json
+      connectionTimeoutMs: 500
+      readTimeoutMs: 3000
+    pokeApi:
+      baseUri: https://pokeapi.co/api/v2
+      speciesUri: /pokemon-species
+      connectionTimeoutMs: 500
+      readTimeoutMs: 3000
